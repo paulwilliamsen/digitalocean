@@ -14,7 +14,7 @@ services:
     env_file: .env
     environment:
       DEBUG: 'true'
-    command: /usr/local/bin/gunicorn sheera_project.wsgi:application -w 2 -b :8000
+    command: /usr/local/bin/gunicorn kickstarter.wsgi:application -w 2 -b :8000
 
   nginx:
     build: ./nginx/
@@ -35,7 +35,7 @@ services:
   redis:
     image: redis:latest
     ports:
-      - "6379:6379"
+      - "6378:6378"
     volumes:
       - redisdata:/data
 
