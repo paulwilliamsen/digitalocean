@@ -12,7 +12,7 @@ services:
     volumes:
       - web-static:/usr/src/app/static
     env_file: .env
-    command: /usr/local/bin/gunicorn sheera_project.wsgi:application -w 2 -b :8000
+    command: /usr/local/bin/gunicorn kickstarter.wsgi:application -w 2 -b :8000
 
   nginx:
     restart: always
@@ -36,7 +36,7 @@ services:
     restart: always
     image: redis:latest
     ports:
-      - "6379"
+      - "6378"
     volumes:
       - redisdata:/data
 
